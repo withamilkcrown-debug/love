@@ -1,0 +1,97 @@
+// data [...]
+const data = document.querySelectorAll('[data]');
+function getByteLength(str){
+  str = (str==null)?"":str;
+  return encodeURI(str).replace(/%../g, "*").length;
+}
+for (let i = 0; i < data.length; i += 1) {
+  a = getByteLength(data[i].innerText);
+  //console.log(a);
+  if (a >= 34) {
+    data[i].innerText = data[i].innerText.substring(0, 16);
+    data[i].innerText += "...";
+  }
+}
+
+// breadcrumb active aria-current="page"
+var olElem = document.querySelector('.breadcrumb');
+if(olElem!==null) {
+  var liChild = olElem.lastElementChild;
+  window.addEventListener('DOMContentLoaded', function (e) {
+    liChild.classList.add('active');
+    liChild.setAttribute('aria-current', 'page');
+  }, false);
+}
+
+$('.lines3').trunk8({
+  lines: 3
+});
+$('.lines2').trunk8({
+  lines: 2
+});
+$('.lines1').trunk8({
+    lines: 1
+});
+
+// list-title
+document.addEventListener("DOMContentLoaded", function() {
+  $('.list-group-item').find('.lines').each(function ( index, value ) {
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      $('.lines3').trunk8({
+        lines: 3
+      });
+      $('.lines2.lines3').trunk8({
+        lines: 2
+      });
+    } else {
+      $('.lines3').trunk8({
+        lines: 3
+      });
+    }
+  });
+});
+
+// theme color
+const btn = document.querySelector("#btn-mode");
+if (btn) {
+  btn.addEventListener("change", () => {
+    if (btn.checked == true) {
+      document.body.classList.remove("mode-light");
+      document.body.classList.add("mode-dark");
+    } else {
+      document.body.classList.remove("mode-dark");
+      document.body.classList.add("mode-light");
+    }
+  });
+}
+
+// a click
+$( function () {
+  $('a[href^="#"]' +
+    'a:not([href="#"])' +
+    'a:not([data-toggle="modal"])' +
+    'a:not([data-toggle="collapse"])' +
+    'a:not([data-toggle="tab"])' +
+    'a:not([data-toggle="dropdown"])' +
+    'a:not([data-toggle="pill"])' +
+    'a:not([data-toggle="tooltip"])' +
+    'a:not([data-slide="prev"])' +
+    'a:not([data-slide="next"])').click(function() {
+    var speed = 500;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    if (target.length >= 1) {
+        var position = target.offset().top;
+        $('body,html').animate({scrollTop:position}, speed, 'swing');
+    } else if ($("#purchase-section").length >= 1) {
+        var position = $("#purchase-section").offset().top;
+        $('body,html').animate({scrollTop:position}, speed, 'swing');
+    }
+    return false;
+  });
+});
+
+// tooltip
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

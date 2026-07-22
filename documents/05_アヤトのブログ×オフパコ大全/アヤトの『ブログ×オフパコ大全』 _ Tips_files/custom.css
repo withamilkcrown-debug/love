@@ -1,0 +1,7 @@
+/*body.mypage .scroll-fixed .user .flex-column {*/
+/*    max-width: calc(100% - 60px);*/
+/*}*/
+body.mypage .scroll-fixed .user .flex-column>p.mypage-profile {
+    font-weight: normal;
+    font-size: 12px;
+}

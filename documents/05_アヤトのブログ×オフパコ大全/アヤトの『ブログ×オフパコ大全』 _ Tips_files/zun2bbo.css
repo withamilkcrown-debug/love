@@ -1,0 +1,38 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * urw-din:
+ *   - http://typekit.com/eulas/00000000000000007735a84f
+ *   - http://typekit.com/eulas/00000000000000007735a855
+ * urw-din-semi-condensed:
+ *   - http://typekit.com/eulas/00000000000000007735a857
+ *
+ * © 2009-2026 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2021-01-22 19:49:46 UTC"}*/
+
+@import url("https://p.typekit.net/p.css?s=1&k=zun2bbo&ht=tk&f=36608.36610.36642&a=15587662&app=typekit&e=css");
+
+@font-face {
+font-family:"urw-din";
+src:url("https://use.typekit.net/af/cd97e9/00000000000000007735a84f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/cd97e9/00000000000000007735a84f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/cd97e9/00000000000000007735a84f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"urw-din";
+src:url("https://use.typekit.net/af/0fba77/00000000000000007735a855/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff2"),url("https://use.typekit.net/af/0fba77/00000000000000007735a855/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff"),url("https://use.typekit.net/af/0fba77/00000000000000007735a855/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:900;font-stretch:normal;
+}
+
+@font-face {
+font-family:"urw-din-semi-condensed";
+src:url("https://use.typekit.net/af/d4ff8c/00000000000000007735a857/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("woff2"),url("https://use.typekit.net/af/d4ff8c/00000000000000007735a857/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("woff"),url("https://use.typekit.net/af/d4ff8c/00000000000000007735a857/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i9&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:900;font-stretch:normal;
+}
+
+.tk-urw-din { font-family: "urw-din",sans-serif; }
+.tk-urw-din-semi-condensed { font-family: "urw-din-semi-condensed",sans-serif; }

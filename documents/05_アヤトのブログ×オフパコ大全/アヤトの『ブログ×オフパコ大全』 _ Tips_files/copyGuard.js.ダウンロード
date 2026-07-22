@@ -1,0 +1,16 @@
+$(function () {
+    $(".editer-content").bind("contextmenu", function () {
+        return false;
+    });
+    $(".editer-content").mousedown(function () {
+        return false;
+    });
+});
+
+document.querySelector('.editer-content').classList.add('copy-guard');
+
+window.onload = function() {
+    document.querySelector('main').oncopy = function () {
+        return false;
+    }
+};

@@ -1,0 +1,127 @@
+$(function () {
+    $('#multiAuthButton').on('click', function (el) {
+        const $this = $(this);
+        $this.prop('disabled', true);
+
+    $.ajax({
+      type: "GET",
+      url: "/api/multi_auth/select",
+      async: false,
+      headers: {
+        "X-CSRF-TOKEN": $("meta[name=\"csrf-token\"]").attr("content")
+      }
+    })
+      .done(function(data) {
+        $("#multiSelectModalContent").html(data.view);
+        $("#multiSelectModal").modal("show");
+      })
+      .fail(function(data) {
+        $("#multiSelectModal").modal("hide");
+
+                new Noty({
+                    layout: 'topCenter',
+                    theme: 'mint',
+                    type: 'error',
+                    text: 'エラーが発生しました。',
+                    timeout: 3000
+                }).show();
+            })
+            .always(function () {
+                $this.prop('disabled', false);
+            });
+    });
+
+    $('#multiSelectModal').on('hidden.bs.modal', function (e) {
+        $('#multiSelectModalContent').html('読み込み中…');
+    });
+
+    $(document).on('click', '#multiAddButton', function (el) {
+        const $this = $(this);
+        $this.prop('disabled', true);
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/multi_auth/show',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        })
+            .done(function (data) {
+                $('#multiSelectModalContent').html(data.view);
+            })
+            .fail(function (data) {
+                $("#multiSelectModal").modal('hide');
+
+                new Noty({
+                    layout: 'topCenter',
+                    theme: 'mint',
+                    type: 'error',
+                    text: 'エラーが発生しました。',
+                    timeout: 3000
+                }).show();
+            })
+            .always(function () {
+                $this.prop('disabled', false);
+            });
+    });
+
+    $(document).on('click', '#multiLoginButton', function (el) {
+        el.preventDefault();
+
+        $('#multi_auth_form').submit();
+    });
+
+    $(document).on('click', '#multiBackButton', function (el) {
+        const $this = $(this);
+        $this.prop('disabled', true);
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/multi_auth/select',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        })
+            .done(function (data) {
+                $('#multiSelectModalContent').html(data.view);
+            })
+            .fail(function (data) {
+                $("#multiSelectModal").modal('hide');
+
+                new Noty({
+                    layout: 'topCenter',
+                    theme: 'mint',
+                    type: 'error',
+                    text: 'エラーが発生しました。',
+                    timeout: 3000
+                }).show();
+            })
+            .always(function () {
+                $this.prop('disabled', false);
+            });
+    });
+
+    $(document).on('click', '#multiDeleteButton', function (el) {
+        if (confirm('本当にこのユーザーとの連携を解除しますか？')) {
+            const form = $('<form/>', {
+                action: this.dataset.href,
+                method: 'POST'
+            });
+
+            form.append($('<input/>', {
+                type: 'hidden',
+                name: '_token',
+                value: $('meta[name="csrf-token"]').attr('content')
+            }));
+
+            form.append($('<input/>', {
+                type: 'hidden',
+                name: '_method',
+                value: 'delete'
+            }));
+
+            form.appendTo(document.body);
+            form.submit();
+        }
+    });
+});

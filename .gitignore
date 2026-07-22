@@ -1,6 +1,3 @@
 # OS / tooling
 .DS_Store
-
-# scratch
-scratchpad/
-*.png
+Thumbs.db
